@@ -294,6 +294,13 @@
     gap: 24px;
     margin-top: 48px;
   }
+  /* Testimonios — grid 2x2 limpio en desktop con 4 items, 1 col en mobile */
+  .testimonials {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 720px) {
+    .testimonials { grid-template-columns: 1fr; }
+  }
   .ruta-card, .metodo-card, .testimonial-card, .beneficio-card {
     background: var(--white);
     border: 1.5px solid var(--border);
@@ -971,29 +978,38 @@
       <div class="professor-carousel" id="professorCarousel" aria-label="Profesores de Canaway">
         <div class="professor-carousel__track">
           <div class="professor-card active">
-            <img src="https://i.pravatar.cc/200?img=47" alt="Sarah M., profesora de Canaway" />
+            <img src="https://raw.githubusercontent.com/xultun/canaway/main/Rosalie.png" alt="Rosalie D., profesora de Canaway" />
             <div class="professor-card__body">
               <span class="professor-card__tag">Profesora de Canaway</span>
-              <p class="professor-card__quote">“Aquí no solo enseñamos un idioma, te preparamos para la vida real en el extranjero.”</p>
-              <span class="professor-card__name">Sarah M. · Profesora certificada</span>
+              <p class="professor-card__quote">“Me encanta ver cómo nuestros estudiantes ganan confianza para hablar en cada clase. ¡El progreso es real y constante!”</p>
+              <span class="professor-card__name">Rosalie D. · Profesora certificada</span>
             </div>
           </div>
 
           <div class="professor-card">
-            <img src="https://i.pravatar.cc/200?img=8" alt="Marcus T., profesor de IELTS y CELPIP" />
+            <img src="https://raw.githubusercontent.com/xultun/canaway/main/Julius.png" alt="Julius M., profesor de Canaway" />
             <div class="professor-card__body">
-              <span class="professor-card__tag">Profesor IELTS / CELPIP</span>
-              <p class="professor-card__quote">“Cada estudiante tiene una meta distinta. Mi trabajo es ayudarte a llegar al puntaje que necesitas con una estrategia clara.”</p>
-              <span class="professor-card__name">Marcus T. · Profesor en Toronto</span>
+              <span class="professor-card__tag">Profesor de Canaway</span>
+              <p class="professor-card__quote">“Mi enfoque es ser directo pero constructivo, ayudando a mis estudiantes a superar sus debilidades y alcanzar sus objetivos con claridad y determinación.”</p>
+              <span class="professor-card__name">Julius M. · Profesor de inglés</span>
             </div>
           </div>
 
           <div class="professor-card">
-            <img src="https://i.pravatar.cc/200?img=32" alt="Émilie D., profesora de francés" />
+            <img src="https://raw.githubusercontent.com/xultun/canaway/main/Emma.png" alt="Emma V., profesora de Canaway" />
             <div class="professor-card__body">
-              <span class="professor-card__tag">Profesora de francés</span>
-              <p class="professor-card__quote">“Aprender francés abre puertas que ni imaginabas. Te acompaño paso a paso, sin presiones.”</p>
-              <span class="professor-card__name">Émilie D. · Profesora bilingüe</span>
+              <span class="professor-card__tag">Profesora de Canaway</span>
+              <p class="professor-card__quote">“Me encanta crear clases dinámicas y centradas en las necesidades individuales de cada estudiante. ¡Ver cómo ganan confianza y fluidez al hablar inglés es lo más gratificante!”</p>
+              <span class="professor-card__name">Emma V. · Profesora certificada</span>
+            </div>
+          </div>
+
+          <div class="professor-card">
+            <img src="https://raw.githubusercontent.com/xultun/canaway/main/Divine.png" alt="Divine C., profesora de Canaway" />
+            <div class="professor-card__body">
+              <span class="professor-card__tag">Profesora de Canaway</span>
+              <p class="professor-card__quote">“Me apasiona guiar a mis estudiantes en cada lección, ayudándolos a expresarse con confianza y mejorar día a día. ¡Cada progreso, por pequeño que parezca, es un gran logro!”</p>
+              <span class="professor-card__name">Divine C. · Profesora de inglés</span>
             </div>
           </div>
         </div>
@@ -1002,6 +1018,7 @@
           <button class="active" data-index="0" aria-label="Ver profesor 1"></button>
           <button data-index="1" aria-label="Ver profesor 2"></button>
           <button data-index="2" aria-label="Ver profesor 3"></button>
+          <button data-index="3" aria-label="Ver profesor 4"></button>
         </div>
       </div>
     </div>
@@ -1240,7 +1257,7 @@
     </div>
 
     <div class="ambiente-image animate-on-scroll animate-scale" data-delay="200">
-      <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1200&q=80" alt="Estudiante en clase virtual de Canaway" />
+      <img src="https://raw.githubusercontent.com/xultun/canaway/main/2148369610.jpg" alt="Estudiante en clase virtual de Canaway" />
       <span class="ambiente-badge">Clase en vivo</span>
     </div>
   </div>
@@ -1327,16 +1344,17 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <p>“Cuando llegué a Canadá me inscribí en Canaway empezando desde un nivel básico y quedé encantada. Su metodología me atrajo desde el principio, hace que sientas que estás en un aula real compartiendo experiencias.”</p>
+        <p>“Sus profesores son nativos, ellos están siempre dispuestos a enseñarnos y a resolver nuestras dudas. La plataforma 100% online te permite aprender desde la comodidad de tu casa. Además, las clases quedan grabadas para que puedas verlas cuantas veces quieras.”</p>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/200?img=44" alt="Caro Correa Ceballos" class="testimonial-avatar">
+          <img src="https://canaway.com/wp-content/uploads/2025/10/freepik__expand__34149.jpeg" alt="Jorge Montesinos" class="testimonial-avatar">
           <div>
-            <div class="testimonial-name">Caro Correa Ceballos</div>
-            <div class="testimonial-location">Canadá</div>
+            <div class="testimonial-name">Jorge Montesinos</div>
+            <div class="testimonial-location">Estudiante de Canaway</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card animate-on-scroll animate-scale" data-delay="300">
+
+      <div class="testimonial-card animate-on-scroll animate-scale" data-delay="250">
         <div class="testimonial-quote-mark" aria-hidden="true">”</div>
         <div class="testimonial-stars" aria-label="5 de 5 estrellas">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -1345,16 +1363,17 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <p>“Una institución excelente, mi experiencia desde Perú fue muy buena, ¡altamente recomendada! Dominan la educación virtual. Clases excelentes con profesores nativos y muy buena logística.”</p>
+        <p>“Es una excelente academia, mi experiencia desde Perú es buenísima, altamente recomendado y es importante decir que dominan la gestión educativa virtual. Profesores nativos A1 y el back muy bien manejado por el equipo administrativo.”</p>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/200?img=12" alt="Jaime Eduardo Diaz" class="testimonial-avatar">
+          <img src="https://canaway.com/wp-content/uploads/2025/10/Jaime-20.jpg" alt="Jaime Duarte" class="testimonial-avatar">
           <div>
-            <div class="testimonial-name">Jaime Eduardo Diaz</div>
-            <div class="testimonial-location">Perú</div>
+            <div class="testimonial-name">Jaime Duarte</div>
+            <div class="testimonial-location">Estudiante desde Perú</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card animate-on-scroll" data-delay="500">
+
+      <div class="testimonial-card animate-on-scroll" data-delay="400">
         <div class="testimonial-quote-mark" aria-hidden="true">”</div>
         <div class="testimonial-stars" aria-label="5 de 5 estrellas">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -1363,12 +1382,31 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
         </div>
-        <p>“Las clases son interactivas y agradables. Los profesores son muy conocedores y crean un ambiente cómodo donde te sientes con confianza para hacer preguntas.”</p>
+        <p>“Los profesores son excelentes, nativos, demasiado motivadores y dinámicos en su clase. Además, te puedes conectar desde cualquier parte del mundo porque su modalidad es 100% online.”</p>
         <div class="testimonial-author">
-          <img src="https://i.pravatar.cc/200?img=25" alt="Daniela Tobar" class="testimonial-avatar">
+          <img src="https://canaway.com/wp-content/uploads/2025/10/freepik__expand__34150.jpeg" alt="Angela Véliz" class="testimonial-avatar">
+          <div>
+            <div class="testimonial-name">Angela Véliz</div>
+            <div class="testimonial-location">Estudiante de Canaway</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card animate-on-scroll animate-scale" data-delay="550">
+        <div class="testimonial-quote-mark" aria-hidden="true">”</div>
+        <div class="testimonial-stars" aria-label="5 de 5 estrellas">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        </div>
+        <p>“Las clases son bastante dinámicas y entretenidas. Los profesores tienen un alto conocimiento y entregan la confianza suficiente para hacer las preguntas que uno tiene durante el aprendizaje.”</p>
+        <div class="testimonial-author">
+          <img src="https://canaway.com/wp-content/uploads/2025/10/freepik__expand__38369.jpeg" alt="Daniela Tobar" class="testimonial-avatar">
           <div>
             <div class="testimonial-name">Daniela Tobar</div>
-            <div class="testimonial-location">Ecuador</div>
+            <div class="testimonial-location">Estudiante de Canaway</div>
           </div>
         </div>
       </div>
