@@ -109,8 +109,8 @@
     background-image: url('https://images.unsplash.com/photo-1517935706615-2717063c2225?auto=format&fit=crop&w=2400&q=80');
     background-size: cover;
     background-position: center 35%;
-    opacity: 0.14;
-    filter: saturate(0.9);
+    opacity: 0.22;
+    filter: saturate(0.95);
   }
   /* Capa de degradado sobre la imagen para mejorar legibilidad y look profesional */
   .hero::after {
@@ -703,6 +703,252 @@
     /* Espacio extra abajo en mobile para que la barra flotante no tape contenido */
     .cta-final { margin-bottom: 80px; }
   }
+
+  /* ─── CARRUSEL DE PROFESORES EN HERO ──────────────── */
+  .professor-carousel {
+    margin-top: 32px;
+    max-width: 520px;
+    position: relative;
+  }
+  .professor-carousel__track {
+    /* Grid con un solo área hace que todas las cards se apilen
+       en el mismo espacio, y la más grande dicta el alto */
+    display: grid;
+    grid-template-areas: "card";
+  }
+  .professor-card {
+    grid-area: card;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    backdrop-filter: blur(10px);
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s ease,
+                border-color 0.4s ease;
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    max-width: 520px;
+  }
+  .professor-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .professor-card:hover {
+    box-shadow: 0 14px 32px rgba(219,23,9,0.12);
+    border-color: var(--red);
+  }
+  .professor-card img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--red-pale);
+    flex-shrink: 0;
+  }
+  .professor-card__body {
+    flex: 1;
+    min-width: 0;
+  }
+  .professor-card__tag {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 4px;
+  }
+  .professor-card__quote {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .professor-card__name {
+    font-size: 0.78rem;
+    color: var(--text-soft);
+    font-weight: 500;
+  }
+
+  /* Dots de navegación del carrusel */
+  .professor-carousel__dots {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .professor-carousel__dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(219,23,9,0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .professor-carousel__dots button:hover {
+    background: rgba(219,23,9,0.5);
+    transform: none;
+    box-shadow: none;
+  }
+  .professor-carousel__dots button.active {
+    background: var(--red);
+    width: 26px;
+    border-radius: 4px;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* ─── SECCIÓN AMBIENTE DE CLASE ───────────────────── */
+  .ambiente-section {
+    background: var(--white);
+    padding: 96px 24px;
+  }
+  .ambiente-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .ambiente-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .ambiente-content h2 { margin-bottom: 16px; }
+  .ambiente-content > p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+  }
+  .ambiente-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .ambiente-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: all 0.3s ease;
+  }
+  .ambiente-feature:hover {
+    background: var(--red-pale);
+    border-color: var(--red);
+    transform: translateY(-2px);
+  }
+  .ambiente-feature__icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--red-pale);
+    color: var(--red);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+  .ambiente-feature:hover .ambiente-feature__icon {
+    background: var(--red);
+    color: var(--white);
+  }
+  .ambiente-feature__icon svg { width: 18px; height: 18px; }
+  .ambiente-image {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.25);
+    aspect-ratio: 4 / 3;
+  }
+  .ambiente-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .ambiente-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, rgba(219,23,9,0.15) 100%);
+    pointer-events: none;
+  }
+  /* Floating badge sobre la imagen */
+  .ambiente-badge {
+    position: absolute;
+    bottom: 22px;
+    left: 22px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 100px;
+    padding: 10px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--black);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 1;
+  }
+  .ambiente-badge::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #2bd36b;
+    box-shadow: 0 0 0 3px rgba(43,211,107,0.25);
+    animation: livePulse 2s ease-in-out infinite;
+  }
+  @keyframes livePulse {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(43,211,107,0.25); }
+    50% { box-shadow: 0 0 0 7px rgba(43,211,107,0.0); }
+  }
+
+  /* ─── DECORACIÓN MAPLE LEAF EN CTA FINAL ──────────── */
+  .cta-final { position: relative; overflow: hidden; }
+  .cta-final::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(219,23,9,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-final::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(219,23,9,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-final > * { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
@@ -720,9 +966,47 @@
         <li>Pago mensual desde USD 79</li>
         <li>Atención en español y clases en vivo</li>
       </ul>
+
+      <!-- Carrusel de profesores (matching canaway.com) -->
+      <div class="professor-carousel" id="professorCarousel" aria-label="Profesores de Canaway">
+        <div class="professor-carousel__track">
+          <div class="professor-card active">
+            <img src="https://i.pravatar.cc/200?img=47" alt="Sarah M., profesora de Canaway" />
+            <div class="professor-card__body">
+              <span class="professor-card__tag">Profesora de Canaway</span>
+              <p class="professor-card__quote">“Aquí no solo enseñamos un idioma, te preparamos para la vida real en el extranjero.”</p>
+              <span class="professor-card__name">Sarah M. · Profesora certificada</span>
+            </div>
+          </div>
+
+          <div class="professor-card">
+            <img src="https://i.pravatar.cc/200?img=8" alt="Marcus T., profesor de IELTS y CELPIP" />
+            <div class="professor-card__body">
+              <span class="professor-card__tag">Profesor IELTS / CELPIP</span>
+              <p class="professor-card__quote">“Cada estudiante tiene una meta distinta. Mi trabajo es ayudarte a llegar al puntaje que necesitas con una estrategia clara.”</p>
+              <span class="professor-card__name">Marcus T. · Profesor en Toronto</span>
+            </div>
+          </div>
+
+          <div class="professor-card">
+            <img src="https://i.pravatar.cc/200?img=32" alt="Émilie D., profesora de francés" />
+            <div class="professor-card__body">
+              <span class="professor-card__tag">Profesora de francés</span>
+              <p class="professor-card__quote">“Aprender francés abre puertas que ni imaginabas. Te acompaño paso a paso, sin presiones.”</p>
+              <span class="professor-card__name">Émilie D. · Profesora bilingüe</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="professor-carousel__dots" role="tablist">
+          <button class="active" data-index="0" aria-label="Ver profesor 1"></button>
+          <button data-index="1" aria-label="Ver profesor 2"></button>
+          <button data-index="2" aria-label="Ver profesor 3"></button>
+        </div>
+      </div>
     </div>
 
-    <!-- FORMULARIO -->
+    <!-- COLUMNA DERECHA: Formulario -->
     <div class="form-card">
       <p style="font-size:1.35rem; font-weight:600; margin-bottom:8px;">Encuentra el programa ideal para tu meta</p>
       <p class="form-subtitle">Déjanos tus datos y te recomendamos la mejor opción según tu país de residencia y el programa que te interesa</p>
@@ -904,6 +1188,64 @@
   </div>
 </section>
 
+<!-- AMBIENTE DE CLASE -->
+<section class="ambiente-section">
+  <div class="ambiente-grid">
+    <div class="ambiente-content animate-on-scroll">
+      <span class="section-eyebrow">Ambiente de clase</span>
+      <h2 class="section-title">Así son nuestras clases en vivo</h2>
+      <p>Aulas virtuales pequeñas con profesores nativos certificados. Aprendes en un entorno cercano, dinámico y enfocado en la vida real, desde donde estés.</p>
+
+      <div class="ambiente-features">
+        <div class="ambiente-feature">
+          <span class="ambiente-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7h-3a2 2 0 0 1-2-2V2"/>
+              <path d="M9 18a4 4 0 0 1-4-4V8a3 3 0 0 1 3-3h7l5 5v6a4 4 0 0 1-4 4Z"/>
+              <circle cx="12" cy="13" r="2"/>
+            </svg>
+          </span>
+          Profesores nativos
+        </div>
+        <div class="ambiente-feature">
+          <span class="ambiente-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m22 8-6 4 6 4V8Z"/>
+              <rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>
+            </svg>
+          </span>
+          Clases 100% en vivo
+        </div>
+        <div class="ambiente-feature">
+          <span class="ambiente-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </span>
+          Sesiones grabadas
+        </div>
+        <div class="ambiente-feature">
+          <span class="ambiente-feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          Aulas pequeñas
+        </div>
+      </div>
+    </div>
+
+    <div class="ambiente-image animate-on-scroll animate-scale" data-delay="200">
+      <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?auto=format&fit=crop&w=1200&q=80" alt="Estudiante en clase virtual de Canaway" />
+      <span class="ambiente-badge">Clase en vivo</span>
+    </div>
+  </div>
+</section>
+
 <!-- METODOLOGÍA -->
 <section style="background:#f7f6f4;">
   <div class="container">
@@ -987,7 +1329,7 @@
         </div>
         <p>“Cuando llegué a Canadá me inscribí en Canaway empezando desde un nivel básico y quedé encantada. Su metodología me atrajo desde el principio, hace que sientas que estás en un aula real compartiendo experiencias.”</p>
         <div class="testimonial-author">
-          <img src="https://ui-avatars.com/api/?name=Caro+Correa&background=DB1709&color=fff&size=160&font-size=0.42&bold=true" alt="Caro Correa Ceballos" class="testimonial-avatar">
+          <img src="https://i.pravatar.cc/200?img=44" alt="Caro Correa Ceballos" class="testimonial-avatar">
           <div>
             <div class="testimonial-name">Caro Correa Ceballos</div>
             <div class="testimonial-location">Canadá</div>
@@ -1005,7 +1347,7 @@
         </div>
         <p>“Una institución excelente, mi experiencia desde Perú fue muy buena, ¡altamente recomendada! Dominan la educación virtual. Clases excelentes con profesores nativos y muy buena logística.”</p>
         <div class="testimonial-author">
-          <img src="https://ui-avatars.com/api/?name=Jaime+Diaz&background=1a1a1a&color=fff&size=160&font-size=0.42&bold=true" alt="Jaime Eduardo Diaz" class="testimonial-avatar">
+          <img src="https://i.pravatar.cc/200?img=12" alt="Jaime Eduardo Diaz" class="testimonial-avatar">
           <div>
             <div class="testimonial-name">Jaime Eduardo Diaz</div>
             <div class="testimonial-location">Perú</div>
@@ -1023,7 +1365,7 @@
         </div>
         <p>“Las clases son interactivas y agradables. Los profesores son muy conocedores y crean un ambiente cómodo donde te sientes con confianza para hacer preguntas.”</p>
         <div class="testimonial-author">
-          <img src="https://ui-avatars.com/api/?name=Daniela+Tobar&background=DB1709&color=fff&size=160&font-size=0.42&bold=true" alt="Daniela Tobar" class="testimonial-avatar">
+          <img src="https://i.pravatar.cc/200?img=25" alt="Daniela Tobar" class="testimonial-avatar">
           <div>
             <div class="testimonial-name">Daniela Tobar</div>
             <div class="testimonial-location">Ecuador</div>
@@ -1192,6 +1534,53 @@ document.querySelectorAll('.animate-on-scroll, .stat-number').forEach(el => {
   };
   window.addEventListener('scroll', trigger, { passive: true });
   trigger();
+})();
+
+/* Carrusel de profesores — auto-rotación + dots + pause-on-hover */
+(function() {
+  const carousel = document.getElementById('professorCarousel');
+  if (!carousel) return;
+  const cards = carousel.querySelectorAll('.professor-card');
+  const dots = carousel.querySelectorAll('.professor-carousel__dots button');
+  if (cards.length < 2) return; // no carrusel necesario si solo hay 1
+
+  let current = 0;
+  let intervalId = null;
+  const ROTATE_MS = 5000;
+
+  function show(index) {
+    cards.forEach((c, i) => c.classList.toggle('active', i === index));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    current = index;
+  }
+
+  function next() {
+    show((current + 1) % cards.length);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    intervalId = setInterval(next, ROTATE_MS);
+  }
+  function stopAutoplay() {
+    if (intervalId) { clearInterval(intervalId); intervalId = null; }
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index'));
+      show(idx);
+      startAutoplay(); // reinicia el ciclo desde el click
+    });
+  });
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+  // Accesibilidad: detener si el usuario está enfocado en algún dot
+  carousel.addEventListener('focusin', stopAutoplay);
+  carousel.addEventListener('focusout', startAutoplay);
+
+  startAutoplay();
 })();
 
 console.log('%c✅ Canaway Landing Page – Ultra moderna con fondo Canadá tenue', 'color:#DB1709; font-weight:700; font-size:13px;');
